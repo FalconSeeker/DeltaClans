@@ -1,0 +1,26 @@
+Messages:
+  Clan-Not-Found: "&cClan not found."
+  Clan-Not-Owner: "&cOnly clan owners can use this command"
+  Clan-Delete: "&cYour clan has been deleted"
+  Clan-Leave: "&cA player has left the clan"
+  Clan-Create: "&aClan has been successfully created"
+  Clan-Set-Tag: "&aClan tag has been changed"
+  TOO-FEW-ARGUMENTS:"&cNot enough arguments"
+  Clan-Kicked: "&aPlayer has been kicked from the clan"
+  Transfer-Owner: "&aOwnership of the clan has been transfered"
+  Not-Command: "&cThis command was not found"
+  Not-Player: "&cOnly players can use this command"
+  Set-Admin: "&aPlayer has been promoted to admin"
+  Clan-Invite: "&aA player has been invited to the clan!"
+  No-Permission: "&cYou do not have permission to use this command"
+  Set-Level: "&aThis clan's level has been upgraded"
+  Blocked-World-Remove: "&cBlocked world removed"
+  Blocked-World-Add: "&aBlocked world added"
+  Clan-Invite-Usage: "&cInvalid usage. Try /clan invite [player]"
+  Player-Not-Found: "&cPlayer was not found"
+  Demote-Player: "&aPlayer was demoted by the owner"
+  Create-Hologram: "&aHologram location created!"
+blocked-worlds:
+- 'blockedworld'
+blocked-names:
+- 'blockedname'

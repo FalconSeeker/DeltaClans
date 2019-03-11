@@ -1,0 +1,20 @@
+name: Clans
+author: Falcon_Seeker
+version: 1.0.0
+main: me.falconseeker.clans.Clans
+commands:
+  clan:
+    description: Main command for clans plugin
+    usage: /clan
+  cc:
+    description: Toggle chat being sent to your clan
+    usage: /cc
+  clanchat:
+    description: Toggle chat being sent to your clan
+    usage: /clanchat
+  addblockedworld:
+    description: Adds a blocked world to the config
+    usage: /addblockedworld
+  removeblockedworld:
+    description: Removes a blocked world from config
+    usage: /removeblockedworld
