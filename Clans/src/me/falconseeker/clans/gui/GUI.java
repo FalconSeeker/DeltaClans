@@ -11,6 +11,8 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import com.google.common.base.Preconditions;
+
 public class GUI {
 
 	private Player p;
@@ -22,10 +24,8 @@ public class GUI {
 	}
 
 	public void addItem(Material mat, String name, ArrayList<String> lore) {
-		if (inv == null) {
-			p.sendMessage("ITEMS COULD NOT BE ADDED.");
-			return;
-		}
+		Preconditions.checkState(inv != null, "Cannot add items while the inventory is null");
+		
 		List<String> lore2 = new ArrayList<String>();
 		for (String s : lore) {
 			lore2.add(ChatColor.translateAlternateColorCodes('&', s));
@@ -51,11 +51,9 @@ public class GUI {
 		return inv;
 	}
 
-	public void setItem(Integer slot, Material mat, String name, ArrayList<String> lore) {
-		if (inv == null) {
-			p.sendMessage("ITEMS COULD NOT BE ADDED.");
-			return;
-		}
+	public void setItem(Integer slot, Material mat, String name, ArrayList<String> lore) { //Custom item builder
+		Preconditions.checkState(inv != null, "Cannot add items while the inventory is null");
+		
 		List<String> lore2 = new ArrayList<String>();
 		for (String s : lore) {
 			lore2.add(ChatColor.translateAlternateColorCodes('&', s));

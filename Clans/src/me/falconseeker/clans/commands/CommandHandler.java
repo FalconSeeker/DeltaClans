@@ -19,10 +19,10 @@ public class CommandHandler implements CommandExecutor
     }
  
     public boolean exists(String name) {
-         return commands.containsKey(name);
+         return commands.containsKey(name.toLowerCase());
     }
      public CommandInterface getExecutor(String name) {
-         return commands.get(name);
+         return commands.get(name.toLowerCase());
     }
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {

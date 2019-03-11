@@ -21,6 +21,7 @@ public class Clans extends JavaPlugin {
 	private Scoreboard sb;
 	private final ConsoleCommandSender sender = Bukkit.getConsoleSender();
 	
+	@Override
 	public void onEnable() {
 	    
 		saveDefaultConfig();
@@ -40,6 +41,7 @@ public class Clans extends JavaPlugin {
 		registerCommands(); 
 		sender.sendMessage(ChatColor.GREEN + "Enabled");
 	}
+	@Override
 	public void onDisable() {
 		clanManager.deserialise();
 		sender.sendMessage(ChatColor.RED + "Disabled");

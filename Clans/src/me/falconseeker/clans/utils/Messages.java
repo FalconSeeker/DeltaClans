@@ -50,9 +50,6 @@ public enum Messages {
         for (String m : messages) builder.append(RESET.toString()).append(m);
         this.message = builder.toString();
     }
-   
-    @Override
-    public String toString() { return message; }
     
-    public void send(CommandSender sender) { sender.sendMessage(toString()); }
+    public void send(CommandSender sender) { sender.sendMessage(message); }
 }

@@ -27,14 +27,21 @@ public class KillLevels implements Listener {
 	@EventHandler
 	public void onKill(EntityDeathEvent e) {
 		Entity killed = e.getEntity();
+		
 		if (!(killed instanceof Player)) return;
+		
 		Player p = (Player)killed;
+		
 		if (p.getKiller() == null) return;
 		if (!(p.getKiller() instanceof Player)) return;
+		
 		Player killer = p.getKiller();
+		
 		if (clanManager.getClan(killer) == null) return;
+		
 		Clan clan = clanManager.getClan(killer);
 		clan.addKill();
+		
 		if (clan.getKills() >= (1 + clan.getIntLevel() *4)) {
 			clan.setLevel(clan.getIntLevel() + 1);
 			for (UUID uuid : clan.getPlayers()) {

@@ -16,11 +16,11 @@ import net.md_5.bungee.api.chat.TextComponent;
 
 public class Clan {
 
-    private final String name;
-    private final Set<UUID> players;
-    private final Set<UUID> admin;
-    private Integer level;
-    private Integer kills;
+    private String name;
+    private Set<UUID> players;
+    private Set<UUID> admin;
+    private int level;
+    private int kills;
     private UUID owner;
     private String tag;
     private ArrayList<Player> invite = new ArrayList<>();
@@ -35,16 +35,16 @@ public class Clan {
     	this.tag = tag;
     	this.kills = kills;
     }
-	public void setLevel(Integer level) {
-		if (this.level >= 100) return;
-		this.level = level;
-	}
-	public void addKill() {
-		 kills = kills + 1;
-	}
-	public Integer getKills() {
-		return kills;
-	}
+    public void setLevel(Integer level) {
+        if (this.level >= 100) return;
+        this.level = level;
+    }
+    public void addKill() {
+        kills = kills + 1;
+    }
+    public Integer getKills() {
+        return kills;
+    }
     public String getName() {
         return name;
     }

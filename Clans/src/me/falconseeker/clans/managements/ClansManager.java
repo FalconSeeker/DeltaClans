@@ -56,24 +56,23 @@ public class ClansManager {
     public void deserialise() {
         if(!clanSet.isEmpty()) {
         
-        clanSet.forEach(Clan -> {
+        for (Clan clan : clanSet) {
             List<String> admin = new ArrayList<String>();
 
-            if (Clan.getAdmins() != null) {
-            Clan.getAdmins().forEach(uuid -> admin.add(String.valueOf(uuid)));
-            config.set("Clans." + Clan.getName() + ".admins", admin);
+            if (clan.getAdmins() != null) {
+            clan.getAdmins().forEach(uuid -> admin.add(String.valueOf(uuid)));
+            config.set("Clans." + clan.getName() + ".admins", admin);
             }
-        }); //admins
-        clanSet.forEach(Clan -> {
             List<String> players = new ArrayList<String>();
             
-            Clan.getPlayers().forEach(uuid -> players.add(String.valueOf(uuid)));
-            config.set("Clans." + Clan.getName() + ".players", players);
-        }); //players
-        clanSet.forEach(Clan -> config.set("Clans." + Clan.getName() + ".owner", String.valueOf(Clan.getOwner()))); //owner
-        clanSet.forEach(Clan -> config.set("Clans." + Clan.getName() + ".tag", Clan.getTag()));
-        clanSet.forEach(Clan -> config.set("Clans." + Clan.getName() + ".level", Clan.getIntLevel()));
-        clanSet.forEach(Clan -> config.set("Clans." + Clan.getName() + ".kills", Clan.getKills()));
+            clan.getPlayers().forEach(uuid -> players.add(String.valueOf(uuid)));
+            config.set("Clans." + clan.getName() + ".players", players);
+            
+            config.set("Clans." + clan.getName() + ".owner", String.valueOf(clan.getOwner()));
+            config.set("Clans." + clan.getName() + ".tag", clan.getTag());
+            config.set("Clans." + clan.getName() + ".level", clan.getIntLevel());
+            config.set("Clans." + clan.getName() + ".kills", clan.getKills());
+        }
         
         plugin.saveConfig();
 

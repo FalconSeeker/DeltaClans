@@ -13,6 +13,8 @@ import org.bukkit.scoreboard.Team.OptionStatus;
  
 public class NameTag {
 	
+	private NameTag() { }
+	
 	public enum TeamAction { CREATE, UPDATE, DESTROY }
 	
     private static Team team;
