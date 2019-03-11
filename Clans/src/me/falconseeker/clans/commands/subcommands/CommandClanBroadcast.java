@@ -6,12 +6,14 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.falconseeker.clans.Clans;
+import me.falconseeker.clans.commands.ClanCommandInterface;
 import me.falconseeker.clans.commands.CommandInterface;
+import me.falconseeker.clans.managements.Clan;
 import me.falconseeker.clans.managements.ClansManager;
 import me.falconseeker.clans.utils.Messages;
 import net.md_5.bungee.api.ChatColor;
 
-public class CommandClanBroadcast implements CommandInterface {
+public class CommandClanBroadcast implements ClanCommandInterface {
 //not registered
 	private ClansManager clanManager;
 	
@@ -20,9 +22,7 @@ public class CommandClanBroadcast implements CommandInterface {
 	}
 	
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-
-		Player p = (Player) sender;
+	public boolean onCommand(Player p, Clan clan, Command cmd, String commandLabel, String[] args) {
 		
 		if (args.length < 2) {
 			Messages.ARGS.send(p);

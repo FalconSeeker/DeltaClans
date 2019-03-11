@@ -8,10 +8,12 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.falconseeker.clans.Clans;
+import me.falconseeker.clans.commands.ClanCommandInterface;
 import me.falconseeker.clans.commands.CommandInterface;
+import me.falconseeker.clans.managements.Clan;
 import me.falconseeker.clans.managements.ClansManager;
 
-public class CommandClanList implements CommandInterface {
+public class CommandClanList implements ClanCommandInterface {
 
 	private ClansManager clanManager;
 	
@@ -19,15 +21,9 @@ public class CommandClanList implements CommandInterface {
 		this.clanManager = main.getClanManager();
 	}
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		Player p = (Player) sender;
-					
-			if (clanManager.getClan(p) == null) {
-				p.sendMessage(ChatColor.RED + "You are not in a clan!");
-				return true;
-			}
+	public boolean onCommand(Player p, Clan clan, Command cmd, String commandLabel, String[] args) {
 			
-			p.sendMessage(color("&7---&9Clan List&8(&7" + String.valueOf(clanManager.getClan(p).getPlayers().size()) + "&8/&71000&8)&7---"));
+			p.sendMessage(color("&7---&9Clan List&8(&7" + String.valueOf(clan.getPlayers().size()) + "&8/&71000&8)&7---"));
 			
 			StringBuilder online = new StringBuilder();
 			StringBuilder offline = new StringBuilder();
@@ -39,22 +35,22 @@ public class CommandClanList implements CommandInterface {
 			if (pl.isOnline()) {
 			
 				Player player = Bukkit.getPlayer(pl.getName());
-				if (clanManager.getClan(player).getOwner().equals(uuid)) {
+				if (clan.getOwner().equals(uuid)) {
 					online.append(ChatColor.GREEN + " ✪" + player.getName());
 					return;
 				}
-				if (clanManager.getClan(player).getAdmins().contains(uuid)) {
+				if (clan.getAdmins().contains(uuid)) {
 					online.append(ChatColor.GREEN + " ✰" + player.getName());
 					return;
 				}
 				online.append(ChatColor.GREEN + " " + player.getName());
 			}
 			if (!pl.isOnline()) {
-				if (clanManager.getClan(p).getOwner().equals(uuid)) {
+				if (clan.getOwner().equals(uuid)) {
 					offline.append(ChatColor.RED + " ✪" + pl.getName());
 					return;
 				}	
-				if (clanManager.getClan(p).getAdmins().contains(uuid)) {
+				if (clan.getAdmins().contains(uuid)) {
 					offline.append(ChatColor.RED + " ✰" + pl.getName());
 					return;
 				}

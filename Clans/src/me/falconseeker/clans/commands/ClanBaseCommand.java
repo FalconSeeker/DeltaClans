@@ -9,16 +9,16 @@ import me.falconseeker.clans.managements.Clan;
 import me.falconseeker.clans.managements.ClansManager;
 import me.falconseeker.clans.utils.Messages;
  
-public class BaseCommand implements CommandInterface
+public class ClanBaseCommand implements ClanCommandInterface
 {
  
 	private ClansManager clanManager;
 	
-	public BaseCommand(Clans main) {
+	public ClanBaseCommand(Clans main) {
 		this.clanManager = main.getClanManager();
 	}
     @Override
-    public boolean onCommand(Player p, Command cmd, String commandLabel, String[] args) {
+    public boolean onCommand(Player p, Clan clan, Command cmd, String commandLabel, String[] args) {
 
      /*   GUI g = new GUI(p, 27, "Clan GUI"); 
         

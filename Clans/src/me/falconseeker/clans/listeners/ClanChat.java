@@ -56,7 +56,7 @@ public class ClanChat implements Listener {
 		if (clanManager.getClan(p) == null) return;
 		
 		Clan clan = clanManager.getClan(p);
-		if (methods.chatdisabled.contains(p)) {
+		if (methods.getDisabled().contains(p)) {
 			p.sendMessage(ChatColor.RED + "You are muted by this clan!");
 			return;
 		}

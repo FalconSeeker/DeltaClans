@@ -1,10 +1,21 @@
 package me.falconseeker.clans.listeners;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.bukkit.entity.Player;
 
 public class Methods {
 
-	public ArrayList<Player> chatdisabled = new ArrayList<Player>();
+	private ArrayList<Player> chatdisabled = new ArrayList<Player>();
+
+	public List<Player> getDisabled() {
+		return chatdisabled;
+	}
+	public void remove(Player p) {
+		chatdisabled.remove(p);
+	}
+	public void add(Player p) {
+		chatdisabled.add(p);
+	}
 }

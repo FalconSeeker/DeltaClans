@@ -7,11 +7,13 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import me.falconseeker.clans.Clans;
+import me.falconseeker.clans.commands.ClanCommandInterface;
 import me.falconseeker.clans.commands.CommandInterface;
+import me.falconseeker.clans.managements.Clan;
 import me.falconseeker.clans.managements.ClansManager;
 import me.falconseeker.clans.utils.Messages;
 
-public class CommandClanAddAdmin implements CommandInterface {
+public class CommandClanAddAdmin implements ClanCommandInterface {
 
 	private ClansManager clanManager;
 	
@@ -19,25 +21,20 @@ public class CommandClanAddAdmin implements CommandInterface {
 		this.clanManager = main.getClanManager();
 	}
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-			Player p = (Player) sender;
+	public boolean onCommand(Player p, Clan clan, Command cmd, String commandLabel, String[] args) {			
 			
-			if (args.length < 2) {
-				Messages.ARGS.send(p);
-				return true;
-			}
-			if (clanManager.getClan(p) == null) {
-				p.sendMessage(ChatColor.RED + "Clan not found.");
-				return true;
-			}
-			if (Bukkit.getPlayer(args[1]) == null) {
-				p.sendMessage(ChatColor.RED + "Sweet niblets, we couldn't find this player!");
-				return true;
-			}
-			if (clanManager.getClan(p).getOwner() != p.getUniqueId()) return true;
-			clanManager.getClan(p).addAdmin(Bukkit.getPlayer(args[1]).getUniqueId());
-			clanManager.getClan(p).getPlayers().forEach(play -> Messages.CLAN_ADD_ADMIN.send(Bukkit.getPlayer(play)));
+		if (args.length < 2) {
+			Messages.ARGS.send(p);
 			return true;
+		}
+		if (Bukkit.getPlayer(args[1]) == null) {
+			p.sendMessage(ChatColor.RED + "Sweet niblets, we couldn't find this player!");
+			return true;
+		}
+		if (clan.getOwner() != p.getUniqueId()) return true;
+		clan.addAdmin(Bukkit.getPlayer(args[1]).getUniqueId());
+		clan.getPlayers().forEach(play -> Messages.CLAN_ADD_ADMIN.send(Bukkit.getPlayer(play)));
+		return true;
 	}
 
 }

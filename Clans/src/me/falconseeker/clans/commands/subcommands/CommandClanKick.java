@@ -23,8 +23,7 @@ public class CommandClanKick implements CommandInterface {
 		this.methods = main.getMethods();
 	}
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-		Player p = (Player) sender;
+	public boolean onCommand(Player p, Command cmd, String commandLabel, String[] args) {
 		
 		if (args.length < 2) {
 			Messages.ARGS.send(p);
@@ -54,8 +53,8 @@ public class CommandClanKick implements CommandInterface {
 			if (clan.getAdmins().contains(p.getUniqueId())) {
 				clan.getAdmins().remove(p.getUniqueId());
 			}
-			if (methods.chatdisabled.contains(newowner)) {
-				methods.chatdisabled.remove(newowner);
+			if (methods.getDisabled().contains(newowner)) {
+				methods.remove(newowner);
 			}
 			return true;
 	}

@@ -19,8 +19,7 @@ public class CommandClanInvite implements CommandInterface {
 		this.clanManager = main.getClanManager();
 	}
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-			Player p = (Player) sender;
+	public boolean onCommand(Player p, Command cmd, String commandLabel, String[] args) {
 			
 			if (clanManager.getClan(p) == null) {
 				p.sendMessage(ChatColor.RED + "You are not in a clan!");

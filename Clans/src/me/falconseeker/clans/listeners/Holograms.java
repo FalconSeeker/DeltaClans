@@ -32,6 +32,7 @@ public class Holograms implements Listener {
 			return;
 		}
 		Hologram holo = new Hologram((Location) main.getConfig().get("holo-location"), color("&8&k::&9Clan Statistics&8&k::"), " ", color("&7Clan Owner &8» &9" + Bukkit.getPlayer(main.getClanManager().getClan(p).getOwner()).getName()), color("&7Clan Name &8» &9" + main.getClanManager().getClan(p).getName()), color("&7Clan Tag &8» &9" + ChatColor.stripColor(main.getClanManager().getClan(p).getTag())), color("&7Clan Level &8» &9" + String.valueOf(main.getClanManager().getClan(p).getIntLevel())), color("&7Players In Clan &8» &9" + String.valueOf(main.getClanManager().getClan(p).getPlayers().size())), " ", color("&7Clan Level &8»&f " + main.getClanManager().getClan(p).getChatLevel()),  color("&eMADE BY FALCON_SEEKER"));
+		holo.update();
 		holo.displayTo(p);
 	}
 	private String color(String s) {

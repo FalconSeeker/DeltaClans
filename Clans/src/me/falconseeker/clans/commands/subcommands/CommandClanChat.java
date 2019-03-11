@@ -31,7 +31,7 @@ public class CommandClanChat implements CommandExecutor {
 		}
 		Player p = (Player) sender;
 		if (cmd.getLabel().equalsIgnoreCase("clanchat") || cmd.getLabel().equalsIgnoreCase("cc")) {
-			if (main.getMethods().chatdisabled.contains(p)) {
+			if (main.getMethods().getDisabled().contains(p)) {
 				p.sendMessage(ChatColor.RED + "You are muted by this clan!");
 				return true;
 			}

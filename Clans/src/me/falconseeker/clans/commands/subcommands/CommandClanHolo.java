@@ -17,10 +17,8 @@ public class CommandClanHolo implements CommandInterface {
   }
   
   @Override
-  public boolean onCommand(CommandSender sender, Command cmd, String arg, String[] args) {
-
-    Player p = (Player)sender;
-
+  public boolean onCommand(Player p, Command cmd, String arg, String[] args) {
+	  
       if (!p.hasPermission("falconseeker.clans.admin")) {
         return false;
       }

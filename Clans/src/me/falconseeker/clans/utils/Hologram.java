@@ -88,7 +88,6 @@ public class Hologram {
      */
     public void setLines(String... text) {
         lines = Arrays.asList(text);
-        update();
     }
 
     /**
@@ -107,11 +106,6 @@ public class Hologram {
      */
     public void setLocation(Location location) {
         this.location = location;
-        update();
-    }
-
-    public void teleport(Location loc) {
-        update();
     }
 
     /**

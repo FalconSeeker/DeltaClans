@@ -19,8 +19,8 @@ public class CommandClanJoin implements CommandInterface {
 		this.clanManager = main.getClanManager();
 	}
 	@Override
-	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-			Player p = (Player) sender;
+	public boolean onCommand(Player p, Command cmd, String commandLabel, String[] args) {
+
 			if (args.length < 2) {
 				Messages.ARGS.send(p);
 			}
